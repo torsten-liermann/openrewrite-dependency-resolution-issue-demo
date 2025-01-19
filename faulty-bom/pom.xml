@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<!--
+    This BOM inherits from 'a99-3rd-party-bom' and intentionally omits versions in its
+    'dependencyManagement' section. While Maven processes this configuration without errors,
+    tools like OpenRewrite may encounter issues during the build process.
+
+    Specifically, OpenRewrite might produce an error message similar to:
+    [ERROR] Failed to execute goal de.akdb.maven:rewrite-maven-plugin:5.47.3.2:run (default-cli)
+           on project qleb-gui-entwicklersetup: Failed to parse or resolve the Maven POM file
+           or one of its dependencies; We cannot reliably continue without this information.
+    [ERROR] ~~(No version provided)~~
+
+    In large projects with numerous POM files, identifying the source of this error can be
+    challenging.
+-->
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.example</groupId>
+        <artifactId>a99-3rd-party-bom</artifactId>
+        <version>1.0.0</version>
+	<relativePath>../a99-3rd-party-bom</relativePath>
+    </parent>
+
+    <groupId>org.example</groupId>
+    <artifactId>faulty-bom</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.auth0</groupId>
+                <artifactId>java-jwt</artifactId>
+                <!-- Version intentionally omitted -->
+            </dependency>
+            <dependency>
+                <groupId>commons-beanutils</groupId>
+                <artifactId>commons-beanutils</artifactId>
+                <!-- Version intentionally omitted -->
+            </dependency>
+            <dependency>
+                <groupId>jakarta.validation</groupId>
+                <artifactId>jakarta.validation-api</artifactId>
+                <!-- Version intentionally omitted -->
+            </dependency>
+            <dependency>
+                <groupId>org.hamcrest</groupId>
+                <artifactId>hamcrest-all</artifactId>
+                <!-- Version intentionally omitted -->
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.weld</groupId>
+                <artifactId>weld-junit5</artifactId>
+                <!-- Version intentionally omitted -->
+            </dependency>
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-engine</artifactId>
+                <!-- Version intentionally omitted -->
+            </dependency>
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-params</artifactId>
+                <!-- Version intentionally omitted -->
+            </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-core</artifactId>
+                <!-- Version intentionally omitted -->
+            </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-junit-jupiter</artifactId>
+                <!-- Version intentionally omitted -->
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <!-- Version intentionally omitted -->
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>
