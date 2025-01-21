@@ -38,7 +38,7 @@ The request to the OpenRewrite developers is simple: Please implement the behavi
 This diagram illustrates the dependency resolution process through multiple management layers, showing how the final dependency scopes are determined based on adjustments made at each level.
 
 1. Initial dependencies are defined with their versions and scopes
-2. Scopes are adjusted in the second management layer
+2. Scopes are adjusted in the second management layer, where no versions are specified for the dependencies.
 3. Final resolution shows the resulting dependencies with their versions and adjusted scopes
 
 
