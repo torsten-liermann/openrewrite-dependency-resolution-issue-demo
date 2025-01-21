@@ -7,3 +7,41 @@ In this example, the issue is clearly visualized, making it easier to understand
 
 The request to the OpenRewrite developers is simple: Please implement the behavior of Maven 3.9.9, which handles this case gracefully without failing. By aligning with Maven's behavior, OpenRewrite can better support projects with complex dependency management setups like this one.
 
+```
++---------------------------+
+| First Dependency Mgmt     |
++---------------------------+
+| Dependency A (v1.0)       | -> scope: compile
+| Dependency B (v2.0)       | -> scope: compile
+| Dependency C (v3.0)       | -> scope: runtime
++---------------------------+
+                |
+                v
++---------------------------+
+| Second Dependency Mgmt    |
++---------------------------+
+| Dependency A (adjusted)   | -> scope: runtime
+| Dependency B (adjusted)   | -> scope: test
+| Dependency C (adjusted)   | -> scope: compile
++---------------------------+
+                |
+                v
++---------------------------+
+| Final Dependencies Used   |
++---------------------------+
+| Dependency A (v1.0)       | -> scope: runtime
+| Dependency B (v2.0)       | -> scope: test
+| Dependency C (v3.0)       | -> scope: compile
++---------------------------+
+```
+
+This diagram illustrates the dependency resolution process through multiple management layers, showing how the final dependency scopes are determined based on adjustments made at each level.
+
+1. Initial dependencies are defined with their versions and scopes
+2. Scopes are adjusted in the second management layer
+3. Final resolution shows the resulting dependencies with their versions and adjusted scopes
+
+
+
+
+
