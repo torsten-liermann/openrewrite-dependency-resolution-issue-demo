@@ -20,18 +20,18 @@ The request to the OpenRewrite developers is simple: Please implement the behavi
 +---------------------------+
 | Second Dependency Mgmt    |
 +---------------------------+
-| Dependency A (adjusted)   | -> scope: runtime
-| Dependency B (adjusted)   | -> scope: test
-| Dependency C (adjusted)   | -> scope: compile
+| Dependency A (adjusted)   | -> no version, scope: runtime
+| Dependency B (adjusted)   | -> no version, scope: test
+| Dependency C (adjusted)   | -> no version, scope: compile
 +---------------------------+
                 |
                 v
 +---------------------------+
 | Final Dependencies Used   |
 +---------------------------+
-| Dependency A (v1.0)       | -> scope: runtime
-| Dependency B (v2.0)       | -> scope: test
-| Dependency C (v3.0)       | -> scope: compile
+| Dependency A              | -> scope: runtime
+| Dependency B              | -> scope: test
+| Dependency C              | -> scope: compile
 +---------------------------+
 ```
 
